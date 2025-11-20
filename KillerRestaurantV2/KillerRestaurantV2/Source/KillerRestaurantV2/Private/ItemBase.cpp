@@ -41,6 +41,7 @@ void AItemBase::OnItemOverlapInteract(UPrimitiveComponent* OverlappedComp, AActo
 
 		if (player)
 			player->currentOverlappedInteractItem = this;
+
 	}
 }
 
