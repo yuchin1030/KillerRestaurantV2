@@ -69,7 +69,7 @@ public:
 	UPROPERTY()
 	class ANPCBase* currentOverlappedNPC;
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, Category = "MySettings")
 	class AActor* currentOverlappedInteractItem;
 
 	UPROPERTY()

@@ -299,8 +299,6 @@ void AKillerRestaurantCharacter::Interact()
 		}
 		else if (currentOverlappedInteractItem->ActorHasTag("Interact/PickUpItem"))
 		{
-			UE_LOG(LogTemp, Warning, TEXT("ddddddddddddddddd"));
-		
 			AItemBase* item = Cast<AItemBase>(currentOverlappedInteractItem);
 				
 			if (item)
