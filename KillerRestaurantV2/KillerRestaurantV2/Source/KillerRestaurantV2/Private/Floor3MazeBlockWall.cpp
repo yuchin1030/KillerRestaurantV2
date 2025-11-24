@@ -28,36 +28,12 @@ void AFloor3MazeBlockWall::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	boxColl->OnComponentBeginOverlap.AddDynamic(this, &AFloor3MazeBlockWall::OnBlockWallInteract);
-	boxColl->OnComponentEndOverlap.AddDynamic(this, &AFloor3MazeBlockWall::OnBlockWallInteractEnd);
 }
 
 void AFloor3MazeBlockWall::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-}
-
-void AFloor3MazeBlockWall::OnBlockWallInteract(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-	if (OtherActor && OtherActor->ActorHasTag("Player"))
-	{
-		class AKillerRestaurantCharacter* player = Cast<AKillerRestaurantCharacter>(OtherActor);
-
-		if (player)
-			player->currentOverlappedInteractItem = this;
-	}
-}
-
-void AFloor3MazeBlockWall::OnBlockWallInteractEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-	if (OtherActor && OtherActor->ActorHasTag("Player"))
-	{
-		class AKillerRestaurantCharacter* player = Cast<AKillerRestaurantCharacter>(OtherActor);
-
-		if (player)
-			player->currentOverlappedInteractItem = nullptr;
-	}
 }
 
 void AFloor3MazeBlockWall::OpenWall(AKillerRestaurantCharacter* player)
