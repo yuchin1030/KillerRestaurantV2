@@ -39,19 +39,22 @@ public:
     UPROPERTY(EditDefaultsOnly, Category = "MySettings")
     class UStaticMeshComponent* spikeMesh;
 
+    UPROPERTY(EditDefaultsOnly, Category = "MySettings")
+    class UStaticMeshComponent* spikeMeshFloor;
+
     /** Collision for damage */
     UPROPERTY(EditDefaultsOnly, Category = "MySettings")
     class UBoxComponent* boxDamageColl;
 
     /** Spike movement */
-    float curHeight = 0;
+    float curHeight = -54;
     float targetHeight;
 
     UPROPERTY(EditAnywhere, Category = "MySettings")
-    float partialHeight = 30.f;
+    float partialHeight = -30.f;
 
     UPROPERTY(EditAnywhere, Category = "MySettings")
-    float fullHeight = 60.f;
+    float fullHeight = 0.f;
 
     UPROPERTY(EditAnywhere, Category = "MySettings")
     float speed = 10.f;

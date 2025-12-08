@@ -39,7 +39,7 @@ public:
 
     // 몇 초 후에 Destroy
     UPROPERTY(EditAnywhere, Category = "MySettings")
-    float lifeTime = 1.f;
+    float lifeTime = 0.25f;
 
     UPROPERTY(EditAnywhere, Category = "MySettings")
     float projectileInitSpeed = 2000.f;

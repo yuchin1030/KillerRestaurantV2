@@ -13,11 +13,14 @@ AObstacleSpike::AObstacleSpike()
     sceneRoot = CreateDefaultSubobject<USceneComponent>(TEXT("sceneRoot"));
     SetRootComponent(sceneRoot);
 
+    spikeMeshFloor = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("spikeMeshFloor"));
+    spikeMeshFloor->SetupAttachment(sceneRoot);
+
     spikeMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("spikeMesh"));
-    spikeMesh->SetupAttachment(sceneRoot);
+    spikeMesh->SetupAttachment(spikeMeshFloor);
 
     boxDamageColl = CreateDefaultSubobject<UBoxComponent>(TEXT("boxDamageColl"));
-    boxDamageColl->SetupAttachment(spikeMesh);
+    boxDamageColl->SetupAttachment(spikeMeshFloor);
 
     curState = ESpikeState::Hidden;
 
@@ -75,7 +78,7 @@ void AObstacleSpike::ChangeSpikeState(ESpikeState state)
     else
     {
         curState = ESpikeState::Hidden;
-        targetHeight = 0;
+        targetHeight = -54;
         boxDamageColl->SetCollisionEnabled(ECollisionEnabled::NoCollision);
     }
 

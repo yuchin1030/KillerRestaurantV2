@@ -27,7 +27,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "MySettings")
 	class UBoxComponent* boxColl;
 
-	UPROPERTY(EditDefaultsOnly, Category = "MySettings")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "MySettings")
 	class UStaticMeshComponent* smComp;
 
 	// 열기 위해 필요한 아이템 이름
