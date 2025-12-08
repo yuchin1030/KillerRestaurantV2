@@ -38,6 +38,7 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/SceneComponent.h"
 #include "Components/ChildActorComponent.h"
+#include <ObstacleSwitch.h>
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -318,6 +319,12 @@ void AKillerRestaurantCharacter::Interact()
 			if (CanInteractInterface)
 				CanInteractInterface->OpenWall(this);
 
+		}
+		else if (currentOverlappedInteractItem->ActorHasTag("Interact/ObstacleSwitch"))
+		{
+			AObstacleSwitch* obs_swtich = Cast<AObstacleSwitch>(currentOverlappedInteractItem);
+
+			obs_swtich->ActiveSwitch();
 		}
 	}
 	else

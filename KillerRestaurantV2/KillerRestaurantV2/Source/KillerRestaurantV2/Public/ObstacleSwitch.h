@@ -23,15 +23,29 @@ public:
 	//virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(EditDefaultsOnly, Category = "MySettings")
+	class USceneComponent* sceneRoot;
+
+	UPROPERTY(EditDefaultsOnly, Category = "MySettings")
 	class UBoxComponent* boxInteractColl;
+
+	UPROPERTY(EditDefaultsOnly, Category = "MySettings")
+	class UStaticMeshComponent* smComp;
+
+	UPROPERTY(EditDefaultsOnly, Category = "MySettings")
+	class UPointLightComponent* p_light;
 
     //UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Switch")
     //int32 SwitchGroupID = 0; // 소속 그룹 ID
 
-    //UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Switch")
-    //float ActiveTime = 5.f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MySettings")
+	float ActiveTime = 0;
 
-    //UPROPERTY(BlueprintReadOnly)
-    //bool bIsActive = false;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MySettings")
+    bool bIsActive = false;
 
+	UFUNCTION(BlueprintCallable)
+	void ActiveSwitch();
+
+	UFUNCTION(BlueprintCallable)
+	void DeActiveSwitch();
 };

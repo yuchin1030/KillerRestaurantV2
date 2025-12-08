@@ -43,8 +43,6 @@ void AFloor3ObstacleBase::OnObstacleOverlapDamage(UPrimitiveComponent* Overlappe
 
 void AFloor3ObstacleBase::OnObstacleOverlapInteract(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	UE_LOG(LogTemp, Warning, TEXT("dddd"));
-
 	if (OtherActor && OtherActor->ActorHasTag("Player"))
 	{
 		if (player)
